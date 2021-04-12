@@ -5,6 +5,7 @@ import AboutMe from './containers/AboutMe/AboutMe';
 import Blog from './containers/Blog/Blog';
 import NewPost from './containers/NewPost/NewPost';
 import { API } from 'aws-amplify';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
         <Route path="/AboutMe" component={AboutMe}/>
         <Route path="/NewPost" component={NewPost}/>
       </Layout>
+      <AmplifySignOut/>
     </div>
   );
 }
 
-export default App;
+export default withAuthenticator(App);

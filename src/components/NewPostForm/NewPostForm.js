@@ -6,7 +6,7 @@ const NewPostForm = props => {
   const [enteredContent, setEnteredContent] = props.enteredContentState;
   const submitHandler = event => {
     event.preventDefault();
-    props.onSubmitNewPost({ title: enteredTitle, content: enteredContent });
+    props.onSubmitNewPost(enteredTitle, enteredContent);
   };
 
   return (

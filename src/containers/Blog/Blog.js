@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PostList from '../../components/PostList/PostList';
 import {listBlogPosts} from '../../graphql/queries';
 import { API } from 'aws-amplify';
@@ -7,10 +7,13 @@ import { Link } from 'react-router-dom';
 const Blog = props => {  // posts = {id: string, title: string, content: string}
   const [posts, setPosts] = useState([]);
 
-  async function fetchPosts() {
-    const apiData = await API.graphql({ query: listBlogPosts });
-    setPosts(apiData.data.listBlogPosts.items);
-  }
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      const apiData = await API.graphql({ query: listBlogPosts });
+      setPosts(apiData.data.listBlogPosts.items);
+    };
+    console.log(posts);
+  }, [])
 
   return (
     <div className="container-fluid main-container">
