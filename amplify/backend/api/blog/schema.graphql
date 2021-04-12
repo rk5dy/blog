@@ -1,0 +1,5 @@
+type BlogPost @model {
+  id: ID!
+  title: String!
+  content: String
+}
