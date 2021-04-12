@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { API } from 'aws-amplify';
+import { API, graphqlOperation } from 'aws-amplify';
 import { createBlogPost } from '../../graphql/mutations';
 import NewPostForm from '../../components/NewPostForm/NewPostForm';
 const NewPost = props => {
   const enteredTitleState = useState('');
   const enteredContentState = useState('');
   const submitHandler = async (title, content) => {
-      await API.graphql({query: createBlogPost, variables:  { input: { title: title, content: content } } });
+      try {
+        const data = {title: title, content: content};
+        await API.graphql(graphqlOperation(createBlogPost, { input: data }));
+      } catch(err) {
+        console.log("Fail to post");
+      }
   };
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createBlogPost } from '../../graphql/mutations';
+import { Link } from 'react-router-dom';
 
 const NewPostForm = props => {
   const [enteredTitle, setEnteredTitle] = props.enteredTitleState;

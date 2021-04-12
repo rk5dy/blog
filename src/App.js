@@ -4,7 +4,6 @@ import Layout from './components/Layout/Layout';
 import AboutMe from './containers/AboutMe/AboutMe';
 import Blog from './containers/Blog/Blog';
 import NewPost from './containers/NewPost/NewPost';
-import { API } from 'aws-amplify';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 
 function App() {
