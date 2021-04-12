@@ -1,31 +1,26 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import PostList from '../../components/PostList/PostList';
+import {listBlogPosts} from '../../graphql/queries';
+import { API } from 'aws-amplify';
+import { Link } from 'react-router-dom';
 
-class Blog extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: [{id: "1", title: "post1", content: "content1"}, {id: "2", title: "post2", content: "content2"}]
-    };
+const Blog = props => {  // posts = {id: string, title: string, content: string}
+  const [posts, setPosts] = useState([]);
+
+  async function fetchPosts() {
+    const apiData = await API.graphql({ query: listBlogPosts });
+    setPosts(apiData.data.listBlogPosts.items);
   }
 
-  newPostHandler = () => {
-    this.props.history.push({
-      pathname: '/newPost',
-    });
-  }
-
-  render() {
-    return (
-      <div className="container-fluid main-container">
-        <div className="jumbotron jumbotron-fluid">
-          <h1 className="display-4">Blog</h1>
-        </div>
-        <button className="btn btn-success" onClick={this.newPostHandler}>New Post</button>
-        <PostList posts={this.state.posts}/>
+  return (
+    <div className="container-fluid main-container">
+      <div className="jumbotron jumbotron-fluid">
+        <h1 className="display-4">Blog</h1>
       </div>
-    );
-  }
-}
+      <Link to='/newPost'><button className="btn btn-success">New Post</button> </Link>
+      <PostList posts={posts}/>
+    </div>
+  );
+};
 
 export default Blog;

@@ -1,34 +1,26 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
+import { API } from 'aws-amplify';
+import { createBlogPost } from '../../graphql/mutations';
+import NewPostForm from '../../components/NewPostForm/NewPostForm';
+const NewPost = props => {
+  const enteredTitleState = useState('');
+  const enteredContentState = useState('');
+  const submitHandler = async () => {
+    const sup = API.graphql({query: createBlogPost, variables:  { input: { title: enteredTitleState[0], content: enteredContentState[0] } } });
+  };
 
-class NewPost extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div className="container-fluid main-container">
-        <div className="jumbotron jumbotron-fluid">
-          <h1 className="display-4">Blog</h1>
-        </div>
-        <form>
-          <div className="form-group">
-            <label htmlFor="strTitle">Title</label>
-            <input type="text" className="form-control" id="strTitle" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="strContent">Content</label>
-            <textarea className="form-control" id="strContent" rows="3"></textarea>
-          </div>
-          <div className="form-group row">
-            <div className="col-sm-10">
-              <button type="submit" className="btn btn-primary">Create Post</button>
-            </div>
-          </div>
-        </form>
+  return (
+    <div className="container-fluid main-container">
+      <div className="jumbotron jumbotron-fluid">
+        <h1 className="display-4">New Post</h1>
       </div>
-    );
-  }
+      <NewPostForm
+        onSubmitNewPost={submitHandler}
+        enteredContentState={enteredContentState}
+        enteredTitleState={enteredTitleState}
+        />
+    </div>
+  );
 }
 
 export default NewPost;
