@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createBlogPost } from '../../graphql/mutations';
 import { Link } from 'react-router-dom';
 
-const NewPostForm = props => {
+const OnePostForm = props => {
   const [enteredTitle, setEnteredTitle] = props.enteredTitleState;
   const [enteredContent, setEnteredContent] = props.enteredContentState;
   const [enteredTags, setEnteredTags] = props.enteredTagsState;
@@ -52,10 +52,11 @@ const NewPostForm = props => {
         <div className="form-group row">
           <div className="col-sm-10">
             <button type="submit" className="btn btn-primary">Create Post</button>
+            <Link to='/'><button className="btn btn-danger">Cancel</button></Link>
           </div>
         </div>
       </form>
   );
 }
 
-export default NewPostForm;
+export default OnePostForm;

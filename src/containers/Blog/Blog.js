@@ -38,7 +38,7 @@ const Blog = props => {  // posts = {id: string, title: string, content: string}
       <div className="jumbotron jumbotron-fluid">
         <h1 className="display-4">Blog</h1>
       </div>
-      <Link to='/newPost'><button className="btn btn-success">New Post</button> </Link>
+      <Link to='/OnePost/'><button className="btn btn-success">New Post</button> </Link>
       <PostList posts={posts} onDeletePost={deleteBlogPostHandler} />
     </div>
   );
