@@ -7,6 +7,8 @@ export const onCreateBlogPost = /* GraphQL */ `
       id
       title
       content
+      postDate
+      tags
       createdAt
       updatedAt
     }
@@ -18,6 +20,8 @@ export const onUpdateBlogPost = /* GraphQL */ `
       id
       title
       content
+      postDate
+      tags
       createdAt
       updatedAt
     }
@@ -29,6 +33,8 @@ export const onDeleteBlogPost = /* GraphQL */ `
       id
       title
       content
+      postDate
+      tags
       createdAt
       updatedAt
     }

@@ -7,6 +7,8 @@ export const getBlogPost = /* GraphQL */ `
       id
       title
       content
+      postDate
+      tags
       createdAt
       updatedAt
     }
@@ -23,6 +25,8 @@ export const listBlogPosts = /* GraphQL */ `
         id
         title
         content
+        postDate
+        tags
         createdAt
         updatedAt
       }

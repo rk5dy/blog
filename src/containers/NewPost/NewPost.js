@@ -5,9 +5,10 @@ import NewPostForm from '../../components/NewPostForm/NewPostForm';
 const NewPost = props => {
   const enteredTitleState = useState('');
   const enteredContentState = useState('');
-  const submitHandler = async (title, content) => {
+  const enteredTagsState = useState('');
+  const submitHandler = async (title, content, tags) => {
       try {
-        const data = {title: title, content: content};
+        const data = {title: title, content: content, postDate: new Date(), tags: tags};
         await API.graphql(graphqlOperation(createBlogPost, { input: data }));
       } catch(err) {
         console.log("Fail to post");
@@ -23,6 +24,7 @@ const NewPost = props => {
         onSubmitNewPost={submitHandler}
         enteredContentState={enteredContentState}
         enteredTitleState={enteredTitleState}
+        enteredTagsState={enteredTagsState}
         />
     </div>
   );

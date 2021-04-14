@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 const NewPostForm = props => {
   const [enteredTitle, setEnteredTitle] = props.enteredTitleState;
   const [enteredContent, setEnteredContent] = props.enteredContentState;
+  const [enteredTags, setEnteredTags] = props.enteredTagsState;
   const submitHandler = event => {
     event.preventDefault();
-    props.onSubmitNewPost(enteredTitle, enteredContent);
+    props.onSubmitNewPost(enteredTitle, enteredContent, enteredTags);
   };
 
   return (
@@ -33,6 +34,18 @@ const NewPostForm = props => {
             value={enteredContent}
             onChange={event => {
               setEnteredContent(event.target.value);
+            }
+          }/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="strTags">Tags (comma-separated)</label>
+          <input
+            type="text"
+            className="form-control"
+            id="strTags"
+            value={enteredTags}
+            onChange={event => {
+              setEnteredTags(event.target.value);
             }
           }/>
         </div>
