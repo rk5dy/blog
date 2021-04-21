@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { createBlogPost } from '../../graphql/mutations';
 import { Link } from 'react-router-dom';
+import Button from '../Navigation/Button/Button';
 
+// props = {enteredTitleState useState, enteredContentState useState, enteredTagsState useState, editMode boolean, authorizedToEdit boolean}
 const OnePostForm = props => {
   const [enteredTitle, setEnteredTitle] = props.enteredTitleState;
   const [enteredContent, setEnteredContent] = props.enteredContentState;
@@ -10,9 +12,10 @@ const OnePostForm = props => {
     event.preventDefault();
     props.onSubmitNewPost(enteredTitle, enteredContent, enteredTags);
   };
+  const submitText = props.editMode ? "Submit Changes" : "Create Post";
 
   return (
-      <form onSubmit={submitHandler}>
+      <form className="row g-3" onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor="strTitle">Title</label>
           <input
@@ -49,10 +52,10 @@ const OnePostForm = props => {
             }
           }/>
         </div>
-        <div className="form-group row">
+        <div className="form-group">
           <div className="col-sm-10">
-            <button type="submit" className="btn btn-primary">Create Post</button>
-            <Link to='/'><button className="btn btn-danger">Cancel</button></Link>
+            <Button type="submit" className="btn btn-primary">{submitText}</Button>
+            <Button link="/" className="btn btn-danger" authorizedToEdit={props.authorizedToEdit}>Cancel</Button>
           </div>
         </div>
       </form>

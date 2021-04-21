@@ -1,10 +1,10 @@
 import React from 'react';
 import NavigationItem from './NavigationItem/NavigationItem';
 const navigationItems = (props) => (
-  <ul className="nav navbar-nav">
+  <div className="collapse navbar-collapse">
     <NavigationItem link="/">Blog</NavigationItem>
     <NavigationItem link="/AboutMe">About Me</NavigationItem>
-  </ul>
+  </div>
 )
 
 export default navigationItems;

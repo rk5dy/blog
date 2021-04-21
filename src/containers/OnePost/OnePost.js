@@ -54,16 +54,20 @@ const OnePost = props => {
     }
   };
 
+  const headerText = editMode ? "Edit Post" : "New Post";
+
   return (
     <div className="container-fluid main-container">
       <div className="jumbotron jumbotron-fluid">
-        <h1 className="display-4">New/Edit Post</h1>
+        <h1 className="display-4">{headerText}</h1>
       </div>
       <OnePostForm
         onSubmitNewPost={submitHandler}
         enteredContentState={enteredContentState}
         enteredTitleState={enteredTitleState}
         enteredTagsState={enteredTagsState}
+        editMode={editMode}
+        authorizedToEdit={true}
         />
     </div>
   );
