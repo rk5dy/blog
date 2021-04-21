@@ -47,7 +47,9 @@ const Blog = props => {  // posts = {id: string, title: string, content: string}
             </p>
           </Container>
         </Jumbotron>
-        <PostList posts={posts} onDeletePost={deleteBlogPostHandler} authorizedToEdit={authorizedToEdit}/>
+        <Container>
+          <PostList posts={posts} onDeletePost={deleteBlogPostHandler} authorizedToEdit={authorizedToEdit}/>
+        </Container>
       </Aux>
   );
 };
