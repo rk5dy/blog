@@ -1,14 +1,14 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
-// props = {type string, className string, linkTo string, authorizedToEdit boolean, onClick function}
+// props = {type string, variant string, linkTo string, authorizedToEdit boolean, onClick function}
 const button = (props) => {
-  const btn = <button type={props.type} className={props.className} onClick={props.onClick}>{props.children}</button>;
-  var finalRetBtn = !props.linkTo || props.linkTo.length === 0 ? btn: <Link to={props.linkTo}>{btn}</Link>;
+  const btn = <Button type={props.type} variant={props.variant} href={props.linkTo} onClick={props.onClick}>{props.children}</Button>;
 
-  if (props.authorizedToEdit === false) finalRetBtn = <div></div>;
+  if (props.authorizedToEdit === false) btn = <div></div>;
 
-  return finalRetBtn;
+  return btn;
 }
 
 export default button;

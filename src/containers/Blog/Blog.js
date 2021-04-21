@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 import PostList from '../../components/PostList/PostList';
 import Button from '../../components/Navigation/Button/Button';
 import {listBlogPosts} from '../../graphql/queries';
 import {deleteBlogPost} from '../../graphql/mutations';
 import { API, graphqlOperation } from 'aws-amplify';
 import { Link } from 'react-router-dom';
+import Aux from '../../hoc/Aux';
 
 const Blog = props => {  // posts = {id: string, title: string, content: string}
   const [posts, setPosts] = useState([]);
@@ -35,13 +38,17 @@ const Blog = props => {  // posts = {id: string, title: string, content: string}
   }
 
   return (
-    <div className="container-fluid main-container">
-      <div className="jumbotron jumbotron-fluid">
-        <h1 className="display-4">Blog</h1>
-      </div>
-      <Button linkTo='/OnePost/' className="btn btn-success" authorizedToEdit={authorizedToEdit}>New Post</Button>
-      <PostList posts={posts} onDeletePost={deleteBlogPostHandler} authorizedToEdit={authorizedToEdit}/>
-    </div>
+      <Aux>
+        <Jumbotron>
+          <Container>
+            <h1>Blog</h1>
+            <p>
+              <Button linkTo='/OnePost/' variant="success" authorizedToEdit={authorizedToEdit}>New Post</Button>
+            </p>
+          </Container>
+        </Jumbotron>
+        <PostList posts={posts} onDeletePost={deleteBlogPostHandler} authorizedToEdit={authorizedToEdit}/>
+      </Aux>
   );
 };
 

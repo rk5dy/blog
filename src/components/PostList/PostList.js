@@ -1,6 +1,6 @@
 import React from 'react';
 import Post from './Post/Post';
-
+import Container from 'react-bootstrap/Container';
 // props = { posts {id string, title string, content string, postDate AWSDateTime, tags string}, onDelete function, authorizedToEdit boolean}
 const postListComponent = (props) => {
   let lstPost = props.posts.map(post => {
@@ -16,9 +16,9 @@ const postListComponent = (props) => {
   });
 
   return (
-    <div className="container">
+    <Container>
       {lstPost}
-    </div>
+    </Container>
   );
 }
 

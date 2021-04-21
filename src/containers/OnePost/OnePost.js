@@ -4,7 +4,9 @@ import { useHistory } from 'react-router-dom';
 import { createBlogPost, updateBlogPost } from '../../graphql/mutations';
 import { getBlogPost } from '../../graphql/queries';
 import OnePostForm from '../../components/OnePostForm/OnePostForm';
-
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
+import Aux from '../../hoc/Aux';
 const OnePost = props => {
   const postId =  props.match.params.postId;
   const enteredTitleState = useState('');
@@ -57,10 +59,12 @@ const OnePost = props => {
   const headerText = editMode ? "Edit Post" : "New Post";
 
   return (
-    <div className="container-fluid main-container">
-      <div className="jumbotron jumbotron-fluid">
-        <h1 className="display-4">{headerText}</h1>
-      </div>
+    <Aux>
+      <Jumbotron fluid>
+        <Container>
+          <h1>{headerText}</h1>
+        </Container>
+      </Jumbotron>
       <OnePostForm
         onSubmitNewPost={submitHandler}
         enteredContentState={enteredContentState}
@@ -69,7 +73,7 @@ const OnePost = props => {
         editMode={editMode}
         authorizedToEdit={true}
         />
-    </div>
+    </Aux>
   );
 }
 

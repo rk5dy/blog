@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createBlogPost } from '../../graphql/mutations';
 import { Link } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 import Button from '../Navigation/Button/Button';
 
 // props = {enteredTitleState useState, enteredContentState useState, enteredTagsState useState, editMode boolean, authorizedToEdit boolean}
@@ -15,50 +16,48 @@ const OnePostForm = props => {
   const submitText = props.editMode ? "Submit Changes" : "Create Post";
 
   return (
-      <form className="row g-3" onSubmit={submitHandler}>
-        <div className="form-group">
-          <label htmlFor="strTitle">Title</label>
-          <input
+      <Form onSubmit={submitHandler}>
+        <Form.Group>
+          <Form.Label>Title</Form.Label>
+          <Form.Control
             type="text"
-            className="form-control"
             id="strTitle"
             value={enteredTitle}
             onChange={event => {
               setEnteredTitle(event.target.value);
             }
           }/>
-        </div>
-        <div className="form-group">
-          <label htmlFor="strContent">Content</label>
-          <textarea
-            className="form-control"
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Content</Form.Label>
+          <Form.Control
+            as="textarea"
             id="strContent"
-            rows="3"
+            rows={3}
             value={enteredContent}
             onChange={event => {
               setEnteredContent(event.target.value);
             }
           }/>
-        </div>
-        <div className="form-group">
-          <label htmlFor="strTags">Tags (comma-separated)</label>
-          <input
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Tags (comma-separated)</Form.Label>
+          <Form.Control
             type="text"
-            className="form-control"
             id="strTags"
             value={enteredTags}
             onChange={event => {
               setEnteredTags(event.target.value);
             }
           }/>
-        </div>
-        <div className="form-group">
+        </Form.Group>
+        <Form.Group>
           <div className="col-sm-10">
-            <Button type="submit" className="btn btn-primary">{submitText}</Button>
-            <Button link="/" className="btn btn-danger" authorizedToEdit={props.authorizedToEdit}>Cancel</Button>
+            <Button variant="primary" type="submit">{submitText}</Button>
+            <Button linkTo="/" variant="danger" authorizedToEdit={props.authorizedToEdit}>Cancel</Button>
           </div>
-        </div>
-      </form>
+        </Form.Group>
+      </Form>
   );
 }
 

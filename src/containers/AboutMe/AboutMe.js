@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
 class AboutMe extends Component {
   render() {
     return (
-      <div className="jumbotron jumbotron-fluid">
-        <div className="container">
+      <Jumbotron fluid>
+        <Container>
           <h1 className="display-4">About Me</h1>
           <p className="lead">
             I'm a .NET developer who likes reading light novels in my free time.
@@ -13,8 +14,8 @@ class AboutMe extends Component {
           <p>
             To be filled
           </p>
-        </div>
-      </div>
+        </Container>
+      </Jumbotron>
     );
   }
 }
