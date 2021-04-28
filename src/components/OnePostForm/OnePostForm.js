@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { createBlogPost } from '../../graphql/mutations';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from '../Navigation/Button/Button';
 

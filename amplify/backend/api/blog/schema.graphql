@@ -5,3 +5,9 @@ type BlogPost @model {
   postDate: AWSDateTime
   tags: String
 }
+
+type User @model {
+  id: ID!
+  username: String
+  password: String
+}

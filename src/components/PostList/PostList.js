@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 const postListComponent = (props) => {
   let lstPost = props.posts.map(post => {
     return (
-      <Row className="justify-content-md-center">
+      <Row key={post.id} className="justify-content-md-center">
         <Post key={post.id}
             title={post.title}
             postDate={post.postDate}

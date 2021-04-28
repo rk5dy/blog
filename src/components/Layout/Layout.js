@@ -1,11 +1,9 @@
 import React from 'react';
 import Toolbar from '../Navigation/Toolbar/Toolbar';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import Aux from '../../hoc/Aux';
 const layout = (props) => (
   <Aux>
-    <Toolbar/>
+    <Toolbar isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn}/>
     {props.children}
   </Aux>
 )

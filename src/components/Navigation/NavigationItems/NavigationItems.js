@@ -2,14 +2,20 @@ import React from 'react';
 import NavBar from 'react-bootstrap/NavBar';
 import Nav from 'react-bootstrap/Nav';
 import NavigationItem from './NavigationItem/NavigationItem';
+import LoginButton from '../Button/LoginButton';
+import Form from 'react-bootstrap/Form';
 
-const navigationItems = (props) => (
-  <NavBar.Collapse>
-    <Nav className="mr-auto">
-      <NavigationItem link="/">Blog</NavigationItem>
-      <NavigationItem link="/AboutMe">About Me</NavigationItem>
-    </Nav>
-  </NavBar.Collapse>
-)
+const NavigationItems = props => {
 
-export default navigationItems;
+  return (
+    <NavBar.Collapse>
+      <Nav className="mr-auto">
+        <NavigationItem link="/">Blog</NavigationItem>
+        <NavigationItem link="/AboutMe">About Me</NavigationItem>
+        <LoginButton isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn}/>
+      </Nav>
+    </NavBar.Collapse>
+  );
+}
+
+export default NavigationItems;

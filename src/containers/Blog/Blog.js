@@ -6,12 +6,10 @@ import Button from '../../components/Navigation/Button/Button';
 import {listBlogPosts} from '../../graphql/queries';
 import {deleteBlogPost} from '../../graphql/mutations';
 import { API, graphqlOperation } from 'aws-amplify';
-import { Link } from 'react-router-dom';
 import Aux from '../../hoc/Aux';
 
 const Blog = props => {  // posts = {id: string, title: string, content: string}
   const [posts, setPosts] = useState([]);
-  const authorizedToEdit = true;
   useEffect(() => {
     fetchBlogPosts();
   }, [])
@@ -43,12 +41,12 @@ const Blog = props => {  // posts = {id: string, title: string, content: string}
           <Container>
             <h1>Blog</h1>
             <p>
-              <Button linkTo='/OnePost/' variant="success" authorizedToEdit={authorizedToEdit}>New Post</Button>
+              <Button linkTo='/OnePost/' variant="success" authorizedToEdit={props.isLoggedIn}>New Post</Button>
             </p>
           </Container>
         </Jumbotron>
         <Container>
-          <PostList posts={posts} onDeletePost={deleteBlogPostHandler} authorizedToEdit={authorizedToEdit}/>
+          <PostList posts={posts} onDeletePost={deleteBlogPostHandler} authorizedToEdit={props.isLoggedIn}/>
         </Container>
       </Aux>
   );
