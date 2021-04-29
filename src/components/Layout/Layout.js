@@ -3,7 +3,7 @@ import Toolbar from '../Navigation/Toolbar/Toolbar';
 import Aux from '../../hoc/Aux';
 const layout = (props) => (
   <Aux>
-    <Toolbar isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn}/>
+    <Toolbar token={props.token} setToken={props.setToken}/>
     {props.children}
   </Aux>
 )

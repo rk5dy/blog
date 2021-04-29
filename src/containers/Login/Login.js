@@ -7,13 +7,12 @@ import { API } from 'aws-amplify';
 import Form from 'react-bootstrap/Form';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
-import useIsLoggedIn from '../../LoggedIn';
 
+// props = {isLoggedIn bool, setIsLoggedIn func}
 const Login = props => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [users, setUsers] = useState([]);
-  const {isLoggedIn, setIsLoggedIn} = useIsLoggedIn();
   const history = useHistory();
 
   useEffect(() => {
@@ -34,7 +33,7 @@ const Login = props => {
     event.preventDefault();
     users.forEach(user => {
       if (user.username === username && user.password === password) {
-        setIsLoggedIn(true);
+        props.setToken({"token": "test123"});
         return history.push('/');
       }
     });

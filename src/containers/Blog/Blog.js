@@ -40,13 +40,11 @@ const Blog = props => {  // posts = {id: string, title: string, content: string}
         <Jumbotron>
           <Container>
             <h1>Blog</h1>
-            <p>
-              <Button linkTo='/OnePost/' variant="success" authorizedToEdit={props.isLoggedIn}>New Post</Button>
-            </p>
+            <Button linkTo='/OnePost/' variant="success" authorizedToEdit={props.token}>New Post</Button>
           </Container>
         </Jumbotron>
         <Container>
-          <PostList posts={posts} onDeletePost={deleteBlogPostHandler} authorizedToEdit={props.isLoggedIn}/>
+          <PostList posts={posts} onDeletePost={deleteBlogPostHandler} authorizedToEdit={props.token}/>
         </Container>
       </Aux>
   );

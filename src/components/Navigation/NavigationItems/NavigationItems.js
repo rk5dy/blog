@@ -12,7 +12,7 @@ const NavigationItems = props => {
       <Nav className="mr-auto">
         <NavigationItem link="/">Blog</NavigationItem>
         <NavigationItem link="/AboutMe">About Me</NavigationItem>
-        <LoginButton isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn}/>
+        <LoginButton token={props.token} setToken={props.setToken}/>
       </Nav>
     </NavBar.Collapse>
   );

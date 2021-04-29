@@ -8,18 +8,18 @@ import Blog from './containers/Blog/Blog';
 import Login from './containers/Login/Login';
 import OnePost from './containers/OnePost/OnePost';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
-import useIsLoggedIn from './LoggedIn';
+import useToken from './useToken';
 
 function App() {
-  const { isLoggedIn, setIsLoggedIn } = useIsLoggedIn();
+  const { token, setToken } = useToken();
   return (
     <Aux>
-      <Layout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}>
-        <Route path="/" exact component={() => <Blog isLoggedIn={isLoggedIn}/>}/>
+      <Layout token={token} setToken={setToken}>
+        <Route path="/" exact render={(props) => <Blog {...props} token={token}/>}/>
         <Route path="/AboutMe" component={AboutMe}/>
         <Route path="/OnePost" component={OnePost} exact/>
         <Route path="/OnePost/:postId" component={OnePost}/>
-        <Route path="/Login" component={Login} exact/>
+        <Route path="/Login" render={(props) => <Login {...props} token={token} setToken={setToken}/>} exact/>
       </Layout>
       <AmplifySignOut/>
     </Aux>
