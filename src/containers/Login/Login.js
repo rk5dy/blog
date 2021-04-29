@@ -31,12 +31,12 @@ const Login = props => {
 
   const submitHandler = async event => {
     event.preventDefault();
-    users.forEach(user => {
-      if (user.username === username && user.password === password) {
-        props.setToken({"token": "test123"});
-        return history.push('/');
-      }
-    });
+    if (users.some(user => user.username === username && user.password === password)) {
+      props.setToken({"token": "test123"});
+      return history.push('/');
+    } else {
+      alert("Wrong username/password");
+    };
   };
 
   return (
