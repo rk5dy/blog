@@ -1,11 +1,12 @@
 import React from 'react';
+import NavBar from 'react-bootstrap/NavBar';
 import NavigationItems from '../NavigationItems/NavigationItems';
 
 const toolbar = (props) => (
-  <nav className="navbar navbar-dark bg-dark fixed-top">
-    <a className="navbar-brand" href="/">Rock's Blog</a>
+  <NavBar bg="dark" expand="lg" variant="dark" fixed="top">
+    <NavBar.Brand href="#">Rock's Blog</NavBar.Brand>
     <NavigationItems token={props.token} setToken={props.setToken}/>
-  </nav>
+  </NavBar>
 )
 
 export default toolbar;
