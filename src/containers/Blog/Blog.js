@@ -10,6 +10,7 @@ import Aux from '../../hoc/Aux';
 
 const Blog = props => {  // posts = {id: string, title: string, content: string}
   const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     fetchBlogPosts();
   }, [])

@@ -51,7 +51,7 @@ const OnePostForm = props => {
         </Form.Group>
         <Form.Group>
           <div className="col-sm-10">
-            <Button variant="primary" type="submit">{submitText}</Button>
+            <Button variant="primary" type="submit" authorizedToEdit={props.authorizedToEdit}>{submitText}</Button>
             <Button linkTo="/" variant="danger" authorizedToEdit={props.authorizedToEdit}>Cancel</Button>
           </div>
         </Form.Group>

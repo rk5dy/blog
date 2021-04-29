@@ -3,7 +3,6 @@ import NavBar from 'react-bootstrap/NavBar';
 import Nav from 'react-bootstrap/Nav';
 import NavigationItem from './NavigationItem/NavigationItem';
 import LoginButton from '../Button/LoginButton';
-import Form from 'react-bootstrap/Form';
 
 const NavigationItems = props => {
 

@@ -21,7 +21,7 @@ const OnePost = props => {
       fetchBlogPost();
       setEditMode(true);
     }
-  }, [])
+  }, [postId])
 
   async function fetchBlogPost() {
     try {
@@ -71,7 +71,7 @@ const OnePost = props => {
         enteredTitleState={enteredTitleState}
         enteredTagsState={enteredTagsState}
         editMode={editMode}
-        authorizedToEdit={true}
+        authorizedToEdit={{"token": "test123"}}
         />
     </Aux>
   );
