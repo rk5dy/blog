@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavigationItem from './NavigationItem/NavigationItem';
 import LoginButton from '../Button/LoginButton';
 
+// props = {token string, setToken func}
 const NavigationItems = props => {
 
   return (

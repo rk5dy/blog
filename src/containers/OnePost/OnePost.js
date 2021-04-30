@@ -7,6 +7,8 @@ import OnePostForm from '../../components/OnePostForm/OnePostForm';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Aux from '../../hoc/Aux';
+
+// props = { postId string }
 const OnePost = props => {
   const postId =  props.match.params.postId;
   const enteredTitleState = useState('');

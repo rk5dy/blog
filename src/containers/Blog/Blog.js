@@ -8,7 +8,7 @@ import {deleteBlogPost} from '../../graphql/mutations';
 import { API, graphqlOperation } from 'aws-amplify';
 import Aux from '../../hoc/Aux';
 
-const Blog = props => {  // posts = {id: string, title: string, content: string}
+const Blog = props => {  // posts = {id: string, title: string, content: string, tags: string}
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
