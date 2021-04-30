@@ -9,7 +9,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - nvm install node
+        - nvm install 15.10
         - npm install
         - npm install react-bootstrap bootstrap reactstrap
     build:
