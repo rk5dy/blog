@@ -10,6 +10,7 @@ frontend:
     preBuild:
       commands:
         - npm install
+        - npm install react-bootstrap bootstrap
     build:
       commands:
         - npm run build
