@@ -9,11 +9,12 @@ frontend:
   phases:
     preBuild:
       commands:
-        - nvm install 15.10
-        - npm install
+        - nvm use 15.10
+        - npm ci
         - npm install react-bootstrap bootstrap reactstrap
     build:
       commands:
+        - nvm use 15.10
         - npm run build
   artifacts:
     baseDirectory: build
