@@ -15,7 +15,7 @@ frontend:
     build:
       commands:
         - nvm use 15.10
-        - npm install react-bootstrap bootstrap reactstrap
+        - npm install --save react-bootstrap bootstrap reactstrap
         - npm run build
   artifacts:
     baseDirectory: build
