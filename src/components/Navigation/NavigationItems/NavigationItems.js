@@ -1,6 +1,4 @@
 import React from 'react';
-import NavBar from 'react-bootstrap/NavBar';
-import Nav from 'react-bootstrap/Nav';
 import NavigationItem from './NavigationItem/NavigationItem';
 import LoginButton from '../Button/LoginButton';
 
@@ -8,13 +6,13 @@ import LoginButton from '../Button/LoginButton';
 const NavigationItems = props => {
 
   return (
-    <NavBar.Collapse>
-      <Nav className="mr-auto">
+    <div className="collapse navbar-collapse" id="topNavbarCollapse">
+      <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
         <NavigationItem link="/">Blog</NavigationItem>
         <NavigationItem link="/AboutMe">About Me</NavigationItem>
         <LoginButton token={props.token} setToken={props.setToken}/>
-      </Nav>
-    </NavBar.Collapse>
+      </ul>
+    </div>
   );
 }
 

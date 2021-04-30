@@ -1,8 +1,9 @@
 import React from 'react';
-import Nav from 'react-bootstrap/Nav';
 
 // props = {link string}
 const navigationItem = (props) => (
-  <Nav.Link href={props.link}>{props.children}</Nav.Link>
+  <li className="nav-item">
+    <a className="nav-link" href={props.link}>{props.children}</a>
+  </li>
 );
 export default navigationItem;
