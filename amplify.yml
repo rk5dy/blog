@@ -12,11 +12,10 @@ frontend:
         - nvm install 15.10
         - nvm use 15.10
         - npm ci
-        - npm install react-bootstrap bootstrap reactstrap
     build:
       commands:
-        - nvm install 15.10
         - nvm use 15.10
+        - npm install react-bootstrap bootstrap reactstrap
         - npm run build
   artifacts:
     baseDirectory: build
